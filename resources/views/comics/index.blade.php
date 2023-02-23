@@ -9,7 +9,7 @@
                 <div class="card">
                     <a href="{{ route('comics.show',['comic' => $comic->id])}}">  
                         <div class="card-img">
-                            <img src="{{$comic->title}}" alt="{{$comic->title}}">
+                            <img src="{{$comic->thumb}}" alt="{{$comic->title}}">
                         </div>
                         <div class="card-title">
                             <p>{{$comic->series}}</p>
