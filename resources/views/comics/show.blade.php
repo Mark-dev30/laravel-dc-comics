@@ -3,10 +3,10 @@
 @section('content')
 <div class="container-fluid  p-0">
     <div class="container-fluid w-100 bg-primary section-blue p-4">
-        <div class="card-comic" style="background-image: url('{{$single['thumb']}}')"> 
+        <div class="card-comic" style="background-image: url('{{$comic->thumb}}')"> 
             <div class="row justify-content-between flex-column h-100">
                 <div class="col-8 text-center">
-                    <p>{{$single['type']}}</p>
+                    <p>{{$comic->type}}</p>
                 </div>
                 <div class="col-12 text-center">
                     <p class="m-0">View Gallery</p>
@@ -17,11 +17,11 @@
     <div class="row mt-5 mb-5 w-75 margin-auto">
         <div class="col-8 ">
             <div class="info-comic text-left">
-                <h3>{{$single['title']}}</h3>
+                <h3>{{$comic->title}}</h3>
                 <div>
                     <div class="row border-bottom border-secondary row-available p-2">
                         <div class="col-9 d-flex justify-content-between align-items-center border-end border-secondary">
-                            <p class="mb-0">U.S Price: {{$single['price']}}</p>
+                            <p class="mb-0">U.S Price: {{$comic->price}}</p>
                             <p class="mb-0 ">AVAILABLE</p>
                         </div>
                         <div class="col-3 d-flex align-items-center justify-content-center">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </div>
-                <p>{{$single['description']}}</p>
+                <p>{{$comic->description}}</p>
             </div>
         </div>
         <div class="col-4">
@@ -50,7 +50,7 @@
                         </div>
                         <div class="col-9">
                             <p>
-                                @foreach (explode(',', $single['artists']) as $artist)
+                                @foreach (explode(',', $comic->artists) as $artist)
                                     <a href="#">{{$artist}},</a>
                                 @endforeach
                             </p>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="col-9">
                             <p>
-                                @foreach (explode(',', $single['writers']) as $writer)
+                                @foreach (explode(',', $comic->writers) as $writer)
                                     <a href="#">{{$writer}},</a>
                                 @endforeach
                             </p>
@@ -78,7 +78,7 @@
                             <p>Series</p>
                         </div>
                         <div class="col-6">
-                            <p><a href="">{{$single['series']}}</a></p>
+                            <p><a href="">{{$comic->series}}</a></p>
                         </div>
                     </div>
                     <div class="row">
@@ -86,7 +86,7 @@
                             <p>U.S Price:</p>
                         </div>
                         <div class="col-6">
-                            <p>{{$single['price']}}</p>
+                            <p>{{$comic->price}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -94,7 +94,7 @@
                             <p>On Sale Date:</p>
                         </div>
                         <div class="col-6">
-                            <p>{{$single['sale_date']}}</p>
+                            <p>{{$comic->sale_date}}</p>
                         </div>
                     </div>
                 </div>

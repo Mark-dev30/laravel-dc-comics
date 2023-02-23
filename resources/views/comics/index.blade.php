@@ -7,19 +7,21 @@
         <div class="content-cards">
             @foreach ($comics as $key => $comic)
                 <div class="card">
-                    {{-- <a href="{{ route('info-comic',['id' => $comic['id']])}}">  --}} 
+                    <a href="{{ route('comics.show',['comic' => $comic->id])}}">  
                         <div class="card-img">
-                            <img src="{{$comic['thumb']}}" alt="{{$comic['title']}}">
+                            <img src="{{$comic->title}}" alt="{{$comic->title}}">
                         </div>
                         <div class="card-title">
-                            <p>{{$comic['series']}}</p>
+                            <p>{{$comic->series}}</p>
                         </div>
-                    {{-- </a> --}}
+                    </a>
                 </div>
             @endforeach
         </div>
-        <div class="content-btn">
+        <div class="content-btn d-flex justify-content-evenly">
             <button class="more-btn">LOAD MORE</button>
+            <a class="more-btn" href="{{ route('comics.create') }}">ADD A COMIC</a>
+            
         </div>
     </div>
 </div>
