@@ -1,0 +1,367 @@
+@import '~bootstrap/scss/bootstrap';
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+/* HEADER */
+
+.cont-blue-header {
+    background-color: #00a9d9;
+
+    .row {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    p {
+        font-size: 10px;
+        color: white;
+    }
+}
+
+.ctn-header {
+    width: 100%;
+    height: 82px;
+}
+
+.row-header-menu {
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+.image-logo {
+    width: 50%;
+    margin: 7px 0;
+}
+
+.menu-bar {
+
+    li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 0.5rem;
+        font-size: 13px;
+
+
+
+
+        a {
+            text-transform: uppercase;
+            text-decoration: none;
+            color: black;
+            padding: 31px 0;
+
+            &.active {
+                border-bottom: 4px solid;
+                border-color: #0282f9;
+                color: #0282f9;
+            }
+
+            &:hover {
+                border-bottom: 4px solid;
+                border-color: #0282f9;
+                color: #0282f9;
+            }
+        }
+
+    }
+
+    .li-input {
+        border-bottom: 2px solid;
+        border-color: #0282f9;
+
+        input {
+            border: none;
+            width: 60px;
+        }
+    }
+}
+
+/* MAIN */
+
+.jumbotron {
+    width: 100%;
+    height: 300px;
+    background-image: url(../img/jumbotron.jpg);
+    background-size: cover;
+}
+
+.cont-jumbo {
+    position: relative;
+}
+
+.h4-series {
+    padding: 10px;
+    background-color: #0282f9;
+    position: absolute;
+    left: 105px;
+    top: -1.5rem;
+    color: white;
+}
+
+.container-cards {
+    width: 100%;
+    background-color: #1c1c1c;
+    padding: 1rem 0;
+}
+
+.content-cards {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    a {
+        text-decoration: none;
+    }
+
+}
+
+.container-link {
+    width: 100%;
+    height: 100px;
+    background-color: #0282f9;
+    display: flex;
+    align-items: center;
+
+    .content-link {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        margin: 0 auto;
+
+        .link {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 50px;
+                height: 50px;
+                object-fit: contain;
+            }
+
+            span {
+                text-transform: uppercase;
+                color: white;
+                margin-left: 10px;
+                font-size: 15px;
+            }
+        }
+
+    }
+}
+
+.content-btn {
+    margin-top: 30px;
+    text-align: center;
+
+    .more-btn {
+        color: white;
+        font-size: 12px;
+        padding: 8px 30px;
+        background-color: #0282f9;
+        border: none;
+    }
+}
+
+/* CARDS */
+.card {
+    width: calc(100% / 6 - 10px);
+    margin-top: 50px;
+    background-color: transparent;
+    border: none;
+
+
+    .card-img {
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+
+}
+
+.card-title {
+    margin-top: 10px;
+
+    p {
+        font-size: 11px;
+        text-transform: uppercase;
+        color: white;
+    }
+}
+
+/* FOOTER */
+
+footer {
+    width: 100%;
+    background-image: url('../img/footer-bg.jpg');
+}
+
+.container-footer {
+    width: 80%;
+    margin: 0 auto;
+    background-image: url('../img/dc-logo-bg.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+
+    .content-menu {
+        display: flex;
+        padding: 30px 30px 0 30px;
+
+        .shop {
+            margin-top: 20px;
+        }
+
+        p {
+            color: white;
+        }
+
+        li {
+            list-style: none;
+
+            a {
+                text-decoration: none;
+                color: grey;
+            }
+        }
+    }
+
+    span {
+        color: grey;
+        padding-left: 30px;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+
+}
+
+.container-social {
+    width: 100%;
+    height: 70px;
+    background-color: #303030;
+
+    .row-social {
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.sign-btn {
+    border: 2px solid #0282f9;
+    background-color: transparent;
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+
+    li {
+        list-style: none;
+        display: inline-block;
+        margin: 10px;
+    }
+
+    h4 {
+        color: #0282f9;
+    }
+}
+
+.margin-20 {
+    margin-left: 20px;
+}
+
+/* Info-Comic */
+.section-blue {
+    position: relative;
+}
+
+.card-comic {
+    width: 8rem;
+    height: 12rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 12px;
+    left: 12%;
+
+    p {
+        font-size: 10px;
+        background-color: #00a9d9;
+        color: white;
+        text-transform: uppercase;
+
+    }
+}
+
+.row-available {
+    background-color: #55ba59;
+
+
+    p {
+        color: white;
+    }
+}
+
+.margin-auto {
+    margin: 0 auto;
+}
+
+.talent,
+.specs {
+    h4 {
+        margin-bottom: 2rem;
+    }
+
+    .row {
+        border-top: 0.5px solid rgb(214, 214, 214);
+
+    }
+
+}
+
+.bg-grey {
+    background-color: rgb(233, 233, 233);
+}
+
+.resources {
+    p {
+        color: grey;
+        text-transform: uppercase;
+        font-size: 13px;
+    }
+
+    img {
+        width: 2rem;
+        filter: invert(23%);
+    }
+
+}
