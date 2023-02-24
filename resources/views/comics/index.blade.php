@@ -12,7 +12,19 @@
                             <img src="{{$comic->thumb}}" alt="{{$comic->title}}">
                         </div>
                         <div class="card-title">
-                            <p>{{$comic->series}}</p>
+                            <p>{{$comic->series}}</p> 
+                            <div class="d-flex justify-content-end">
+                                <a class="btn btn-warning btn-sm me-2" href="{{ route('comics.edit', ['comic' => $comic->id])}}">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <form action="{{ route('comics.destroy', ['comic' => $comic->id])}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </a>
                 </div>
