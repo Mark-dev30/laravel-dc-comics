@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+/* Bonus 1 */
+use Illuminate\Support\Facades\Validator;
 use App\Models\Comic;
 
 class ComicsController extends Controller
@@ -145,7 +147,7 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        /* $request->validate([
             'title' => 'required|max:255',
             'description' => 'required|max:255',
             'thumb' => 'required|max:255',
@@ -154,10 +156,11 @@ class ComicsController extends Controller
             'sale_date' => 'nullable',
             'type' => 'required|max:255'
 
-        ]);
+        ]); */
 
 
-        $form = $request->all();
+        /* $form = $request->all(); */
+        $form = $this->validation($request->all());
 
         $newComic = new Comic();
 
@@ -171,8 +174,9 @@ class ComicsController extends Controller
         $newComic->type = $form['type']; */
 
 
-        $newComic->fill($form); // A SCRIVERE QUESTO. cONDIZIONE CHE IL NAME DEL FORM è UGUALE AL NOME DELLA COLONNA.
+        $newComic->fill($form); // A SCRIVERE QUESTO. CONDIZIONE CHE IL NAME DEL FORM è UGUALE AL NOME DELLA COLONNA.
         $newComic->save();
+
 
         return redirect()->route('comics.show', ['comic' => $newComic->id]);
     }
@@ -325,7 +329,7 @@ class ComicsController extends Controller
     {
         $comic = Comic::findOrFail($id);
 
-        $request->validate([
+        /* $request->validate([
             'title' => 'required|max:255',
             'description' => 'required|max:255',
             'thumb' => 'required|max:255',
@@ -334,9 +338,10 @@ class ComicsController extends Controller
             'sale_date' => 'nullable',
             'type' => 'required|max:255'
 
-        ]);
+        ]); */
 
-        $form = $request->all();
+        $form = $this->validation($request->all());
+        /* $form = $request->all(); */
         $comic->update($form);
 
         return redirect()->route('comics.show', ['comic' => $comic->id]);
@@ -354,5 +359,38 @@ class ComicsController extends Controller
         $comic->delete();
 
         return redirect()->route('comics.index');
+    }
+
+    private function validation($data)
+    {
+
+        $validator = Validator::make(
+            $data,
+            [
+                'title' => 'required|max:255',
+                'description' => 'required|',
+                'thumb' => 'required|max:255',
+                'price' => 'required|max:255',
+                'series' => 'required|max:255',
+                'sale_date' => 'nullable',
+                'type' => 'required|max:255'
+
+            ],
+            [
+                'title.required' => 'The title field cannot be left blank',
+                'title.max' => 'The title field cannot exceed 255 characters',
+                'descrption.required' => 'The descrption field cannot be left blank',
+                'thumb.required' => 'The image field cannot be left blank',
+                'thumb.max' => 'The image field cannot exceed 255 characters',
+                'price.required' => 'The price field cannot be left blank',
+                'price.max' => 'The price field cannot exceed 255 characters',
+                'series.required' => 'The series field cannot be left blank',
+                'series.max' => 'The series field cannot exceed 255 characters',
+                'type.required' => 'The type field cannot be left blank',
+                'type.max' => 'The type field cannot exceed 255 characters',
+            ]
+        )->validate();
+
+        return $validator;
     }
 }

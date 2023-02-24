@@ -27,7 +27,7 @@
             <div class="col-sm-10 mb-3">
                 <input type="text" class="form-control" name="thumb" placeholder="Insert the image" value="{{ old('thumb') ?? $comic->thumb}}">
                 @error('thumb')
-                <div>{{$message}}</div>
+                    <p class="text-danger">{{$message}}</p>
                 @enderror
             </div>
 
@@ -35,7 +35,7 @@
             <div class="col-sm-10 mb-3">
                 <input type="text" class="form-control" name="title" placeholder="Insert the title" value="{{ old('title') ?? $comic->title}}">
                 @error('title')
-                <div>{{$message}}</div>
+                    <p class="text-danger">{{$message}}</p> 
                 @enderror
             </div>
             <label class="col-sm-2 col-form-label">Price</label>
@@ -46,21 +46,21 @@
             <div class="col-sm-10 mb-3">
                 <input type="text" class="form-control" name="series" placeholder="Insert the series" value="{{ old('series') ?? $comic->series}}">
                 @error('series')
-                <div>{{$message}}</div>
+                    <p class="text-danger">{{$message}}</p>
                 @enderror
             </div>
             <label class="col-sm-2 col-form-label">Sale Date</label>
             <div class="col-sm-10 mb-3">
                 <input type="text" class="form-control" name="sale_date" placeholder="Insert the sale date" value="{{ old('sale_date') ?? $comic->sale_date}}">
                 @error('sale_date')
-                <div>{{$message}}</div>
+                    <p class="text-danger">{{$message}}</p>
                 @enderror
             </div>
             <label class="col-sm-2 col-form-label">Type</label>
             <div class="col-sm-10 mb-3">
                 <input type="text" class="form-control" name="type" placeholder="Insert the type" value="{{ old('type') ?? $comic->type}}">
                 @error('type')
-                <div>{{$message}}</div>
+                    <p class="text-danger">{{$message}}</p>
                 @enderror
             </div>
             <label class="col-sm-2 col-form-label">Description</label>
