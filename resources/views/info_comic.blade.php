@@ -1,3 +1,4 @@
+{{-- NON E' PIU' COLLEGATO. IL SUO CONTENUTO E' STATO COPIATO IN SHOW.BLADE.PHP --}}
 @extends('layout.app')
 
 @section('content')

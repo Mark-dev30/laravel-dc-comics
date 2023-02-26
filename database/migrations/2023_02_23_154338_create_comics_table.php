@@ -11,9 +11,12 @@ return new class extends Migration
      *
      * @return void
      */
+
+    //FUNZIONE PER L'INSERIMENTO DELLA TABELLA NEL DATABASE
     public function up()
     {
         Schema::create('comics', function (Blueprint $table) {
+            /* INSERIMENTO DI OGNI COLONNA */
             $table->id();
             $table->text('title');
             $table->text('description');
@@ -31,6 +34,8 @@ return new class extends Migration
      *
      * @return void
      */
+
+    //FUNZIONE PER L'ELIMINAZIONE' DELLA TABELLA NEL DATABASE
     public function down()
     {
         Schema::dropIfExists('comics');

@@ -8,6 +8,8 @@ class HomesController extends Controller
 {
     public function index()
     {
+        /* Passo i due array associativi. L'array '$menu' è il menu del header.
+        L'array $menu_footer è il menu del footer */
         $menu = [
             'movies' => '/movies',
             'tv' => '/tv',
@@ -62,7 +64,7 @@ class HomesController extends Controller
                 'footer-periscope.png'
             ],
         ];
-
+        /* Ritorno una pagina con view. 'homepage' è la rotta della pagina. Compact serve per il passaggio dei due array(In questo caso sono array ma possono essere anche variabili) */
         return view('homepage', compact('menu', 'menu_footer'));
     }
 }

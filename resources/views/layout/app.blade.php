@@ -11,9 +11,12 @@
 
     </head>
     <body>
+        {{-- INCLUDIAMO HEADER.BLADE.PHP (NELLA CARTELLA PARTIALS) --}}
         @include('partials.header')
         <main>
+            {{-- INCLUDIAMO LE DIVERSE PAGINE --}}
             @yield('content')
         </main>
+        {{-- INCLUDIAMO FOOTER.BLADE.PHP (NELLA CARTELLA PARTIALS) --}}
         @include('partials.footer')
     </body>

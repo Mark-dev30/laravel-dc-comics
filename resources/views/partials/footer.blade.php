@@ -4,13 +4,14 @@
             <div class="dc-shop">
                 <p>DC COMICS</p>
                 <ul class="p-0">
+                    {{-- CICLIAMO L'ARRAY CON CHIAVE COMICS ALL'INTERNO DELL'ARRAY MENU FOOTER --}}
                     @foreach ($menu_footer['comics'] as $key => $item)
                     <li><a href="">{{$key}}</a></li>
                     @endforeach
-                    {{-- <li v-for="item in comics"><a href="#">{{item.label}}</a></li> --}}
                 </ul>
                 <p class="shop">SHOP</p>
                 <ul class="p-0">
+                    {{-- CICLIAMO L'ARRAY CON CHIAVE SHOP ALL'INTERNO DELL'ARRAY MENU FOOTER --}}
                     @foreach ($menu_footer['shop'] as $key => $item)
                     <li><a href="">{{$key}}</a></li>
                     @endforeach
@@ -19,6 +20,7 @@
             <div class="dc margin-20">
                 <p>DC</p>
                 <ul class="p-0">
+                    {{-- CICLIAMO L'ARRAY CON CHIAVE DC ALL'INTERNO DELL'ARRAY MENU FOOTER --}}
                     @foreach ($menu_footer['dc'] as $key => $item)
                     <li><a href="">{{$key}}</a></li>
                     @endforeach
@@ -27,6 +29,7 @@
             <div class="sites margin-20">
                 <p>SITES</p>
                 <ul class="p-0">
+                    {{-- CICLIAMO L'ARRAY CON CHIAVE SITES ALL'INTERNO DELL'ARRAY MENU FOOTER --}}
                     @foreach ($menu_footer['sites'] as $key => $item)
                     <li><a href="">{{$key}}</a></li>
                     @endforeach
@@ -48,6 +51,7 @@
             <div class="social">
                 <h4>FOLLOW US</h4> 
                 <ul>
+                    {{-- CICLIAMO L'ARRAY DELLE IMMAGINI ALL'INTERNO DELL'ARRAY MENU FOOTER --}}
                     @foreach ($menu_footer['img_social'] as $item)
                     <li>
                         <a href="#">

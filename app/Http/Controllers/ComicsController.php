@@ -14,8 +14,13 @@ class ComicsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //Funzione per il reindirizzamento alla pagina index.blade.php(cartella comics) e il passaggio dei dati
     public function index()
     {
+
+        /* Passo i due array associativi. L'array '$menu' è il menu del header.
+        L'array $menu_footer è il menu del footer */
         $menu = [
             'movies' => '/movies',
             'tv' => '/tv',
@@ -70,8 +75,11 @@ class ComicsController extends Controller
                 'footer-periscope.png'
             ],
         ];
+        //Prendo tutto dalla tabella. Collegamento con il file model Comic.php
         $comics = Comic::all();
 
+        //Ritorno la pagina index.blade.php della cartella comic
+        //Con compact passo alla pagina index $comics(array contenente i record della tabella) e i due array dei menu
         return view('comics.index', compact('comics', 'menu', 'menu_footer'));
     }
 
@@ -80,6 +88,9 @@ class ComicsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //Funzione per il reindirizzamento alla pagina create.blade.php(cartella comics) e il passaggio dei dati
+    //Funzione che permette la creazione di un fumetto
     public function create()
     {
         $menu = [
@@ -136,6 +147,9 @@ class ComicsController extends Controller
                 'footer-periscope.png'
             ],
         ];
+
+        //Reindirizzamento alla cartella comics, al file create.blade.php
+        //Con compact passiamo i due array con i menu
         return view('comics.create', compact('menu', 'menu_footer'));
     }
 
@@ -145,8 +159,12 @@ class ComicsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //CON QUESTA FUNZIONE ESEGUIAMO LA LOGICA
     public function store(Request $request)
     {
+
+        // Creiamo le regole di validità utilizzando il metodo validate() fornito dall'oggetto Illuminate\Http\Request
         /* $request->validate([
             'title' => 'required|max:255',
             'description' => 'required|max:255',
@@ -160,8 +178,10 @@ class ComicsController extends Controller
 
 
         /* $form = $request->all(); */
+
         $form = $this->validation($request->all());
 
+        //Creiamo un nuovo record
         $newComic = new Comic();
 
         //QUESTO EQUIVALE
@@ -175,9 +195,12 @@ class ComicsController extends Controller
 
 
         $newComic->fill($form); // A SCRIVERE QUESTO. CONDIZIONE CHE IL NAME DEL FORM è UGUALE AL NOME DELLA COLONNA.
+
+        //SALVIAMO IL NUOVO RECORD
         $newComic->save();
 
-
+        //LA FUNZIONE REDIRECT() REINDIRIZZA AD UN ALTRA PAGINA
+        //LA FUNZIONE ROUTE() E' LA ROTTA 
         return redirect()->route('comics.show', ['comic' => $newComic->id]);
     }
 
@@ -187,6 +210,9 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //FUNZIONE PER IL RENDIRIZZAMENTO ALLA PAGINA SHOW.BLADE.PHP(CARTELLA COMICS) E IL PASSAGGIO DEI DATI
+    //MOSTRA LA PAGINA DETTAGLIO DEL SINGOLO FUMETTO
     public function show($id)
     {
 
@@ -244,8 +270,10 @@ class ComicsController extends Controller
                 'footer-periscope.png'
             ],
         ];
+        //FindOrFail TROVA LELEMENTO ALL'INTERNO DELLA TABELLA TRAMITE ID
         $comic = Comic::findOrFail($id);
-
+        //REINDIRIZZA ALLA PAGINA SHOW.BLADE.INDEX
+        //COMPACT PASSA ALLA PAGINA L'ELEEMENTO E I DUE ARRAY DEI MENU
         return view('comics.show', compact('comic', 'menu', 'menu_footer'));
         abort(404);
     }
@@ -256,6 +284,8 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //FUNZIONE PER IL RENDIRIZZAMENTO ALLA PAGINA EDIT.BLADE.PHP(CARTELLA COMICS) E IL PASSAGGIO DEI DATI
     public function edit($id)
     {
         $menu = [
@@ -312,9 +342,14 @@ class ComicsController extends Controller
                 'footer-periscope.png'
             ],
         ];
+        //FindOrFail TROVA LELEMENTO ALL'INTERNO DELLA TABELLA TRAMITE ID
         $comic = Comic::findOrFail($id);
 
+        //REINDIRIZZA ALLA PAGINA EDIT.BLADE.INDEX
+        //COMPACT PASSA ALLA PAGINA L'ELEEMENTO E I DUE ARRAY DEI MENU
         return view('comics.edit', compact('comic', 'menu', 'menu_footer'));
+
+        //SE NON TROVA LA PAGINA MOSTRA LA CLASSISA PAGINA CON ERRORE 404
         abort(404);
     }
 
@@ -325,8 +360,11 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //CON QUESTA FUNZIONE ESEGUIAMO LA LOGICA
     public function update(Request $request, $id)
     {
+        //FindOrFail TROVA LELEMENTO ALL'INTERNO DELLA TABELLA TRAMITE ID
         $comic = Comic::findOrFail($id);
 
         /* $request->validate([
@@ -340,10 +378,15 @@ class ComicsController extends Controller
 
         ]); */
 
+
         $form = $this->validation($request->all());
         /* $form = $request->all(); */
+
+        //ESEGUIAMO L'UPDATE DELL'ELEMENTO
         $comic->update($form);
 
+        //LA FUNZIONE REDIRECT() REINDIRIZZA AD UN ALTRA PAGINA
+        //LA FUNZIONE ROUTE() E' LA ROTTA 
         return redirect()->route('comics.show', ['comic' => $comic->id]);
     }
 
@@ -353,14 +396,21 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //FUNZIONE PER L'ELIMINAZIONE DEL RECORD NEL DATABASE
     public function destroy($id)
     {
         $comic = Comic::findOrFail($id);
+
+        //ELIMINIAMO IL RECORD NEL DATABASE
         $comic->delete();
 
+        //REINDIRIZZA ALLA PAGINA INDEX.BLADE.PHP
         return redirect()->route('comics.index');
     }
 
+
+    //CREIAMO UNA FUNZIONE VER LA VALIDAZIONE PERSONALIZZATA DELL'INPUT
     private function validation($data)
     {
 

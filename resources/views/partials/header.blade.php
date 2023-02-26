@@ -12,6 +12,7 @@
         <div class="row row-header-menu">
             <div class="col-2">
                 <div class="logo">
+                    {{-- INSERIMENTO DELL'IMMAGINE --}}
                     <img class="image-logo" src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="DC-logo">
                 </div>
             </div>
@@ -19,13 +20,17 @@
                 <div class="menu-bar">
                     <ul class="m-0">
                         <li>
+                            {{-- CREIAMO UNA CONDIZIONE E INSERIAMO LA ROTTA PER LA PAGINA DESIDERATA --}}
                             <a class="{{ Route::currentRouteName() == 'homepage' ? 'active' : ''}}" href="{{ route('homepage')}}">Characters</a>
                         </li>
                         <li>
+                            {{-- CREIAMO UNA CONDIZIONE E INSERIAMO LA ROTTA PER LA PAGINA DESIDERATA --}}
                             <a class="{{ Route::currentRouteName() == 'comics.index' ? 'active' : ''}}" href="{{ route('comics.index')}}">Comics</a>
                         </li>
+                        {{-- CICLIAMO IL MENU --}}
                         @foreach ($menu as $key => $item )
                         <li>
+                            {{-- CREIAMO UNA CONDIZIONE E INSERIAMO LA ROTTA PER LA PAGINA DESIDERATA --}}
                             <a class="{{ Route::currentRouteName() == $key ? 'active' : ''}}" href="#">{{ $key }}</a>
                         </li>
                         @endforeach

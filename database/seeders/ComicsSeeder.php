@@ -13,10 +13,13 @@ class ComicsSeeder extends Seeder
      *
      * @return void
      */
+
+    //POPOLIAMO LA TABELLA CON I RECORD
     public function run()
     {
+        //PRELEVIAMO L'RARRAY DA COMIC.PHP
         $comics = config('comics');
-
+        //CICLIAMO L'ARRAY PER L'INSERIMENTO DEI RECORDS
         foreach ($comics as $comic) {
 
             $newComic = new Comic();
