@@ -78,7 +78,7 @@ class ComicsController extends Controller
         //Prendo tutto dalla tabella. Collegamento con il file model Comic.php
         $comics = Comic::all();
 
-        //Ritorno la pagina index.blade.php della cartella comic
+        //Ritorno la pagina index.blade.php della cartella comics
         //Con compact passo alla pagina index $comics(array contenente i record della tabella) e i due array dei menu
         return view('comics.index', compact('comics', 'menu', 'menu_footer'));
     }
@@ -169,9 +169,9 @@ class ComicsController extends Controller
             'title' => 'required|max:255',
             'description' => 'required|max:255',
             'thumb' => 'required|max:255',
-            'price' => 'required|max:255',
+            'price' => 'required|numeric',
             'series' => 'required|max:255',
-            'sale_date' => 'nullable',
+            'sale_date' =>'required|date_format:Y-m-d' 'nullable',
             'type' => 'required|max:255'
 
         ]); */
